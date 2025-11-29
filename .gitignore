@@ -14,7 +14,7 @@ env/
 
 # Logs
 *.log
-log_share.txt
+log_*.txt
 
 # ======================================
 # Selenium / WebDriver
@@ -65,3 +65,4 @@ Thumbs.db
 # PROJECT SPECIFIC
 # ======================================
 groups.txt
+groups2.txt
