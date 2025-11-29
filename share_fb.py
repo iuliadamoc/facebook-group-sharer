@@ -84,8 +84,8 @@ for g in groups:
 # ==========================================
 
 def try_share_once(group_name):
-    driver.get(POST_URL)
-    time.sleep(random.uniform(2, 4))
+    # driver.get(POST_URL)
+    # time.sleep(random.uniform(2, 4))
 
     # CLICK SHARE - versiunea TA, care mergea
     try:
