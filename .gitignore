@@ -11,6 +11,12 @@ __pycache__/
 venv/
 ENV/
 env/
+.env
+*.env
+__pycache__/
+log_*.txt
+.github/
+
 
 # Logs
 *.log

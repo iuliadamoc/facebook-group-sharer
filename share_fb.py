@@ -1,6 +1,8 @@
 import time
 import random
 import logging
+from dotenv import load_dotenv
+import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
@@ -8,12 +10,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 
+load_dotenv()
+CHROME_PROFILE = os.getenv("CHROME_PROFILE")
+CHROME_PROFILE_NAME = os.getenv("CHROME_PROFILE_NAME")
+
 # ==========================================
 # USER CONFIG
 # ==========================================
 
-POST_URL = "https://www.facebook.com/anca.borsaru1/"
-DELAY_SECONDS = 40
+POST_URL = os.getenv("POST_URL")
+DELAY_SECONDS = 20
 GROUPS_FILE = "groups.txt"
 RETRY_COUNT = 3
 
@@ -43,19 +49,24 @@ def log_console(level, message):
 # ==========================================
 
 options = webdriver.ChromeOptions()
+options.add_argument(f"--user-data-dir={CHROME_PROFILE}")
+options.add_argument(f"--profile-directory={CHROME_PROFILE_NAME}")
 options.add_argument("--start-maximized")
+options.add_experimental_option("excludeSwitches", ["enable-automation"])
+options.add_experimental_option("useAutomationExtension", False)
 
 service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=options)
 
-# ==========================================
-# LOGIN FACEBOOK
-# ==========================================
+# ---- PATCH 1: pornim cu o pagină neutră ----
+driver.get("chrome://newtab/")
 
-log_console("info", "\nDeschid Facebook...")
-driver.get("https://www.facebook.com")
+time.sleep(1)
 
-input("\n📌 Loghează-te în browser și APASĂ ENTER în VS Code când ești logată... ")
+# ---- PATCH 2: forțăm încărcarea postării ----
+driver.execute_script(f"window.location.href = '{POST_URL}';")
+
+time.sleep(2)
 
 # ==========================================
 # LOAD GROUPS
