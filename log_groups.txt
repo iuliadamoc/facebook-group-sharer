@@ -1,0 +1,94 @@
+2025-11-28 17:32:37,484 — INFO — ====== WebDriver manager ======
+2025-11-28 17:32:38,302 — INFO — Get LATEST chromedriver version for google-chrome
+2025-11-28 17:32:38,720 — INFO — Get LATEST chromedriver version for google-chrome
+2025-11-28 17:32:39,110 — INFO — Driver [C:\Users\Iulia\.wdm\drivers\chromedriver\win64\142.0.7444.175\chromedriver-win32/chromedriver.exe] found in cache
+2025-11-28 17:32:40,161 — INFO — Deschid Facebook...
+2025-11-28 17:33:11,146 — INFO — 
+\U0001f4cc Grupuri înc\u0103rcate:
+2025-11-28 17:33:11,148 — INFO — 
+\U0001f4cc Postez în grupul: 1770570373189064
+2025-11-28 17:33:18,604 — INFO — \u274c Eroare (1/2): Message: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@role='button' and contains(text(), "Scrie ceva")]"}
+  (Session info: chrome=142.0.7444.176); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x524103
+	0x524144
+	0x32e71d
+	0x37a03d
+	0x37a41b
+	0x3c17f2
+	0x39c954
+	0x3bee17
+	0x39c706
+	0x36da30
+	0x36ed54
+	0x7957b4
+	0x79098a
+	0x54c392
+	0x53c4c8
+	0x54324d
+	0x52c478
+	0x52c63c
+	0x5167ca
+	0x76aafcc9
+	0x779182ae
+	0x7791827e
+
+2025-11-28 17:33:29,702 — INFO — \u274c Eroare (2/2): Message: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@role='button' and contains(text(), "Scrie ceva")]"}
+  (Session info: chrome=142.0.7444.176); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x524103
+	0x524144
+	0x32e71d
+	0x37a03d
+	0x37a41b
+	0x3c17f2
+	0x39c954
+	0x3bee17
+	0x39c706
+	0x36da30
+	0x36ed54
+	0x7957b4
+	0x79098a
+	0x54c392
+	0x53c4c8
+	0x54324d
+	0x52c478
+	0x52c63c
+	0x5167ca
+	0x76aafcc9
+	0x779182ae
+	0x7791827e
+
+2025-11-28 17:33:32,703 — INFO — \u26d4 E\u0219uat definitiv în 1770570373189064
+2025-11-28 17:33:32,704 — INFO — \u23f3 A\u0219tept 30 secunde...
+2025-11-28 17:34:02,706 — INFO — 
+\U0001f4cc Postez în grupul: 816504811787684
+2025-11-28 17:34:11,014 — INFO — \u274c Eroare (1/2): Message: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@role='button' and contains(text(), "Scrie ceva")]"}
+  (Session info: chrome=142.0.7444.176); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x524103
+	0x524144
+	0x32e71d
+	0x37a03d
+	0x37a41b
+	0x3c17f2
+	0x39c954
+	0x3bee17
+	0x39c706
+	0x36da30
+	0x36ed54
+	0x7957b4
+	0x79098a
+	0x54c392
+	0x53c4c8
+	0x54324d
+	0x52c478
+	0x52c63c
+	0x5167ca
+	0x76aafcc9
+	0x779182ae
+	0x7791827e
+

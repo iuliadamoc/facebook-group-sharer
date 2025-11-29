@@ -1,0 +1,67 @@
+# ======================================
+# Python
+# ======================================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virutal environments
+.venv/
+venv/
+ENV/
+env/
+
+# Logs
+*.log
+log_share.txt
+
+# ======================================
+# Selenium / WebDriver
+# ======================================
+chromedriver.exe
+*.log
+selenium-screenshot.png
+
+# WebDriver cache (driver manager)
+~/.wdm/
+webdriver/
+
+# ======================================
+# Config files you don't want public
+# ======================================
+*.ini
+*.cfg
+
+# ======================================
+# Chrome user profile – NU TREBUIE PE GITHUB !!!
+# ======================================
+User Data/
+userdata/
+chrome-data/
+Chrome/
+
+# Any folder with saved Chrome sessions
+Default/
+Profile*
+*.db
+*.ldb
+
+# ======================================
+# OS / Editor files
+# ======================================
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+.vs/
+
+# Backup files
+*.bak
+*.tmp
+
+# ======================================
+# PROJECT SPECIFIC
+# ======================================
+groups.txt
