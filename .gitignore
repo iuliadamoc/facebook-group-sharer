@@ -49,7 +49,7 @@ Chrome/
 
 # Any folder with saved Chrome sessions
 Default/
-Profile*
+# Profile*
 *.db
 *.ldb
 
