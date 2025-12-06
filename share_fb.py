@@ -27,8 +27,12 @@ if len(sys.argv) >= 2:  # dacă există mesaj
 
 POST_URL = os.getenv("POST_URL")
 DELAY_SECONDS = 20
-GROUPS_FILE = "userdata/groups.txt"
+GROUPS_FILE = f"userdata/{SELECTED_PROFILE}_groups.txt"
 RETRY_COUNT = 3
+
+if not os.path.exists(GROUPS_FILE):
+    with open(GROUPS_FILE, "w", encoding="utf-8") as f:
+        f.write("")  
 
 # ==========================================
 # LOGGING SETUP

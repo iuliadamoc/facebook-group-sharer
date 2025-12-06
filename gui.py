@@ -17,18 +17,20 @@ class ProfileSelector(QWidget):
         super().__init__()
 
         self.setWindowTitle("Selectează profil Facebook")
-        self.setFixedSize(420, 260)
+        self.setFixedSize(420, 280)
 
         self.setStyleSheet("""
             QWidget { background-color: #f7f9fc; font-family: 'Segoe UI'; }
             QLabel { font-size: 15px; color: #2a2a2a; font-weight: bold; }
             QLineEdit {
-                font-size: 14px;
+                font-size: 16px;
                 padding: 8px;
-                border-radius: 6px;
+                border-radius: 8px;
                 border: 1px solid #aab7c4;
                 background-color: white;
+                min-height: 20px;
             }
+
             QComboBox {
                 font-size: 14px;
                 padding: 6px;
@@ -39,17 +41,20 @@ class ProfileSelector(QWidget):
             QPushButton {
                 background-color: #4a90e2;
                 color: white;
-                font-size: 15px;
+                font-size: 16px;
                 border-radius: 8px;
-                padding: 10px;
+                padding: 12px 20px;
+                min-width: 220px;
+                min-height: 14px;
             }
+
             QPushButton:hover { background-color: #357abd; }
             QPushButton:pressed { background-color: #2d63a3; }
         """)
 
         layout = QVBoxLayout()
         layout.setContentsMargins(30, 25, 30, 25)
-        layout.setSpacing(18)
+        layout.setSpacing(20)
 
         # Selectare profil
         self.label = QLabel("Alege profilul Facebook:")
@@ -71,6 +76,7 @@ class ProfileSelector(QWidget):
         layout.addWidget(self.combo)
 
         layout.addWidget(self.msg_label)
+        # self.message_box.setMinimumWidth(260)
         layout.addWidget(self.message_box)
 
         layout.addWidget(self.button, alignment=Qt.AlignmentFlag.AlignCenter)
