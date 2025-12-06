@@ -1,7 +1,7 @@
 import sys
 import os
 from PyQt6.QtWidgets import (
-    QApplication, QWidget, QVBoxLayout, QLabel, QPushButton, QComboBox
+    QApplication, QWidget, QVBoxLayout, QLabel, QPushButton, QComboBox, QLineEdit
 )
 from PyQt6.QtGui import QFont
 from PyQt6.QtCore import Qt
@@ -17,21 +17,20 @@ class ProfileSelector(QWidget):
         super().__init__()
 
         self.setWindowTitle("Selectează profil Facebook")
-        self.setFixedSize(380, 200)
+        self.setFixedSize(420, 260)
 
-        # ───────── STYLE GLOBAL (Modern UI) ─────────
         self.setStyleSheet("""
-            QWidget {
-                background-color: #f7f9fc;
-                font-family: 'Segoe UI';
-            }
-            QLabel {
-                font-size: 16px;
-                color: #2a2a2a;
-                font-weight: bold;
+            QWidget { background-color: #f7f9fc; font-family: 'Segoe UI'; }
+            QLabel { font-size: 15px; color: #2a2a2a; font-weight: bold; }
+            QLineEdit {
+                font-size: 14px;
+                padding: 8px;
+                border-radius: 6px;
+                border: 1px solid #aab7c4;
+                background-color: white;
             }
             QComboBox {
-                font-size: 15px;
+                font-size: 14px;
                 padding: 6px;
                 border-radius: 6px;
                 border: 1px solid #aab7c4;
@@ -44,50 +43,54 @@ class ProfileSelector(QWidget):
                 border-radius: 8px;
                 padding: 10px;
             }
-            QPushButton:hover {
-                background-color: #357abd;
-            }
-            QPushButton:pressed {
-                background-color: #2d63a3;
-            }
+            QPushButton:hover { background-color: #357abd; }
+            QPushButton:pressed { background-color: #2d63a3; }
         """)
 
-        # ───────── Layout principal ─────────
         layout = QVBoxLayout()
         layout.setContentsMargins(30, 25, 30, 25)
-        layout.setSpacing(20)
+        layout.setSpacing(18)
 
+        # Selectare profil
         self.label = QLabel("Alege profilul Facebook:")
-        self.label.setAlignment(Qt.AlignmentFlag.AlignLeft)
-
         self.combo = QComboBox()
 
-        # Detectăm profilurile
         profiles = detect_chrome_profiles(CHROME_DIR)
         self.combo.addItems(profiles)
 
+        # Mesaj pentru postare
+        self.msg_label = QLabel("Mesaj pentru postare:")
+        self.message_box = QLineEdit()
+        self.message_box.setPlaceholderText("Scrie mesajul pentru postare...")
+
+        # Buton start
         self.button = QPushButton("Pornește cu acest profil")
         self.button.clicked.connect(self.start_with_profile)
 
         layout.addWidget(self.label)
         layout.addWidget(self.combo)
+
+        layout.addWidget(self.msg_label)
+        layout.addWidget(self.message_box)
+
         layout.addWidget(self.button, alignment=Qt.AlignmentFlag.AlignCenter)
 
         self.setLayout(layout)
 
     def start_with_profile(self):
         profile = self.combo.currentText()
-        print(f"[INFO] Pornesc cu profilul: {profile}")
+        message = self.message_box.text().replace('"', "'")
 
-        # îl trimitem către scriptul principal
-        os.system(f'py share_fb.py "{profile}"')
+        print(f"[INFO] Profil selectat: {profile}")
+        print(f"[INFO] Mesaj introdus: {message}")
+
+        os.system(f'py share_fb.py "{profile}" "{message}"')
 
         self.close()
 
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-
     window = ProfileSelector()
     window.show()
-
     sys.exit(app.exec())

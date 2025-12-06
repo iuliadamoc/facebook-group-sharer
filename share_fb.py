@@ -21,6 +21,10 @@ if len(sys.argv) < 2:
 SELECTED_PROFILE = sys.argv[1]  # ex: "Profile 1"
 CHROME_PROFILE = os.getenv("CHROME_PROFILE")
 
+MESSAGE_TEXT = ""
+if len(sys.argv) >= 2:  # dacă există mesaj
+    MESSAGE_TEXT = sys.argv[2]
+
 POST_URL = os.getenv("POST_URL")
 DELAY_SECONDS = 20
 GROUPS_FILE = "userdata/groups.txt"
@@ -216,6 +220,30 @@ def try_share_once(group_name):
 
     except Exception:
         return False, "Nu găsesc grupul exact — apare dar nu este clickable."
+
+    # -----------------------------------------------------------
+    # SCRIE MESAJUL ÎN CASETA DE TEXT (în dialogul Share)
+    # -----------------------------------------------------------
+    if MESSAGE_TEXT.strip():
+        try:
+            message_box = WebDriverWait(driver, 6).until(
+                EC.presence_of_element_located((
+                    By.XPATH,
+                    "//div[@role='dialog']//div[@role='textbox']"
+                ))
+            )
+
+            # folosim JavaScript pentru click pentru a evita overlay-ul
+            driver.execute_script("arguments[0].scrollIntoView({block:'center'});", message_box)
+            time.sleep(0.2)
+            driver.execute_script("arguments[0].click();", message_box)
+            time.sleep(0.2)
+
+            message_box.send_keys(MESSAGE_TEXT)
+            time.sleep(0.3)
+
+        except Exception as e:
+            return False, f"Nu pot scrie mesajul în caseta de text — {e}"
 
 
     # CLICK POST
